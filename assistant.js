@@ -32,12 +32,15 @@ class StudentAssistant {
         
         if (hostname === 'localhost' || hostname === '127.0.0.1') {
             return 'http://localhost:5000';
-        } else if (hostname.includes('vercel.app') || hostname.includes('nitra.nbytes.xyz')) {
+        } else if (hostname.includes('vercel.app')) {
             // Use the same domain for Vercel deployment
             return window.location.origin;
+        } else if (hostname.includes('nitra.nbytes.xyz')) {
+            // Production backend URL - update this to your actual backend URL
+            return 'https://nitra-mitra-backend.vercel.app';
         } else {
-            // Fallback - you can set your production backend URL here
-            return 'https://your-backend-url.vercel.app';
+            // Fallback - use the same origin
+            return window.location.origin;
         }
     }
     
@@ -80,6 +83,10 @@ class StudentAssistant {
     initializeModeToggle() {
         // Set initial mode based on stored preference or default to server mode
         const savedMode = localStorage.getItem('assistant_mode');
+        
+        // Always show the API setup initially so user can see mode selector
+        this.showApiSetup();
+        
         if (savedMode === 'client') {
             this.clientModeRadio.checked = true;
             this.switchToClientMode();
@@ -99,7 +106,9 @@ class StudentAssistant {
         
         // Check backend status
         await this.checkBackendStatus();
-        this.checkConfiguration();
+        
+        // Always hide API setup in server mode since no key is needed
+        this.hideApiSetup();
     }
     
     switchToClientMode() {
@@ -110,7 +119,14 @@ class StudentAssistant {
         this.clientModeSetup.style.display = 'block';
         this.backendStatus.style.display = 'none';
         
-        this.checkConfiguration();
+        // Check if API key is already saved
+        if (this.config.apiKey) {
+            this.hideApiSetup();
+        } else {
+            this.showApiSetup();
+        }
+        
+        this.toggleSendButton();
     }
     
     async checkBackendStatus() {
@@ -534,6 +550,18 @@ function clearChat() {
         if (confirm('Are you sure you want to clear the chat history?')) {
             window.assistant.clearChat();
         }
+    }
+}
+
+function startChatting() {
+    if (window.assistant) {
+        window.assistant.hideApiSetup();
+    }
+}
+
+function showConfiguration() {
+    if (window.assistant) {
+        window.assistant.showApiSetup();
     }
 }
 
