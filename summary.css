@@ -326,6 +326,205 @@
     margin-top: 1rem;
 }
 
+/* Markdown content styling */
+.markdown-content {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--primary-text-color);
+}
+
+.markdown-content h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 1.5rem 0 1rem 0;
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+.markdown-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.3rem 0 0.8rem 0;
+    color: var(--accent-color);
+}
+
+.markdown-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1.1rem 0 0.6rem 0;
+    color: var(--primary-text-color);
+}
+
+.markdown-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem 0;
+    color: var(--primary-text-color);
+}
+
+.markdown-content h5,
+.markdown-content h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0.8rem 0 0.4rem 0;
+    color: var(--primary-text-color);
+}
+
+.markdown-content p {
+    margin: 0.8rem 0;
+    text-align: justify;
+}
+
+.markdown-content strong {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.markdown-content em {
+    font-style: italic;
+    color: var(--secondary-text-color);
+}
+
+.markdown-content code {
+    background: var(--bg-shade);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.markdown-content pre {
+    background: var(--bg-shade);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.markdown-content pre code {
+    background: none;
+    padding: 0;
+    border: none;
+    color: var(--primary-text-color);
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.markdown-content li {
+    margin: 0.4rem 0;
+    line-height: 1.5;
+}
+
+.markdown-content ul li {
+    list-style-type: disc;
+}
+
+.markdown-content ol li {
+    list-style-type: decimal;
+}
+
+.markdown-content blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin: 1rem 0;
+    background: rgba(var(--accent-color-rgb), 0.05);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+}
+
+.markdown-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+    border: 1px solid var(--bg-shade);
+}
+
+.markdown-content th,
+.markdown-content td {
+    border: 1px solid var(--bg-shade);
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.markdown-content th {
+    background: var(--bg-shade);
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.markdown-content a {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.markdown-content a:hover {
+    border-bottom-color: var(--accent-color);
+}
+
+.markdown-content hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    margin: 2rem 0;
+}
+
+/* Dark mode markdown styles */
+.dark-mode .markdown-content {
+    color: rgb(238, 234, 234);
+}
+
+.dark-mode .markdown-content h1,
+.dark-mode .markdown-content h2 {
+    color: var(--accent-color);
+}
+
+.dark-mode .markdown-content h3,
+.dark-mode .markdown-content h4,
+.dark-mode .markdown-content h5,
+.dark-mode .markdown-content h6 {
+    color: rgb(238, 234, 234);
+}
+
+.dark-mode .markdown-content code {
+    background: rgba(255,255,255,0.1);
+    color: var(--accent-color);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.dark-mode .markdown-content pre {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+}
+
+.dark-mode .markdown-content pre code {
+    color: rgb(238, 234, 234);
+}
+
+.dark-mode .markdown-content blockquote {
+    background: rgba(var(--accent-color-rgb), 0.1);
+}
+
+.dark-mode .markdown-content table,
+.dark-mode .markdown-content th,
+.dark-mode .markdown-content td {
+    border-color: rgba(255,255,255,0.2);
+}
+
+.dark-mode .markdown-content th {
+    background: rgba(255,255,255,0.1);
+    color: var(--accent-color);
+}
+
 /* Dark mode styles */
 .dark-mode .feature-card {
     background: var(--bg-shade);

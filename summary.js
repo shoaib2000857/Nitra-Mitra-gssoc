@@ -3,6 +3,89 @@
 const BASE_URL = 'https://nitra-mitra-gssoc.vercel.app';
 let selectedFile = null;
 
+// Utility function to render markdown content
+function renderMarkdown(content) {
+    if (typeof marked !== 'undefined') {
+        // Configure marked options for better rendering
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+            sanitize: false,
+            smartLists: true,
+            smartypants: true
+        });
+        
+        // Parse markdown and sanitize if DOMPurify is available
+        const htmlContent = marked.parse(content);
+        
+        if (typeof DOMPurify !== 'undefined') {
+            return DOMPurify.sanitize(htmlContent);
+        }
+        return htmlContent;
+    } else {
+        // Fallback: Enhanced text formatting if marked.js is not available
+        return content
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // Bold
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')              // Italic
+            .replace(/`(.*?)`/g, '<code>$1</code>')            // Inline code
+            .replace(/^### (.*$)/gim, '<h3>$1</h3>')           // H3
+            .replace(/^## (.*$)/gim, '<h2>$1</h2>')            // H2
+            .replace(/^# (.*$)/gim, '<h1>$1</h1>')             // H1
+            .replace(/^\* (.*$)/gim, '<li>$1</li>')            // List items
+            .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')        // Wrap lists
+            .replace(/\n/g, '<br>');                           // Line breaks
+    }
+}
+
+// Enhanced result display function
+function displayResult(resultDiv, data, type) {
+    const content = type === 'notes' ? data.enhanced_notes : data.summary;
+    const renderedContent = renderMarkdown(content);
+    
+    let title, stats;
+    
+    switch(type) {
+        case 'text':
+            title = 'Summary Generated Successfully';
+            stats = `
+                <strong>Original Length:</strong> ${data.original_length} characters<br>
+                <strong>Summary Length:</strong> ${content.length} characters<br>
+                <strong>Compression Ratio:</strong> ${Math.round((1 - content.length / data.original_length) * 100)}%
+            `;
+            break;
+        case 'file':
+            title = 'File Summarized Successfully';
+            stats = `
+                <strong>File:</strong> ${data.filename}<br>
+                <strong>Extracted Length:</strong> ${data.extracted_length} characters<br>
+                <strong>Summary Length:</strong> ${content.length} characters<br>
+                <strong>File Type:</strong> ${selectedFile?.type || 'Unknown'}
+            `;
+            break;
+        case 'notes':
+            title = 'Notes Enhanced Successfully';
+            stats = `
+                <strong>Enhancement Type:</strong> ${data.type}<br>
+                <strong>Original Length:</strong> ${data.original_length} characters<br>
+                <strong>Enhanced Length:</strong> ${content.length} characters<br>
+                <strong>Improvement:</strong> ${content.length > data.original_length ? 'Expanded' : 'Condensed'}
+            `;
+            break;
+    }
+    
+    resultDiv.className = 'result-area success';
+    resultDiv.innerHTML = `
+        <h5><i class="fas fa-check-circle"></i> ${title}</h5>
+        <div style="margin-top: 1rem;">
+            ${stats}
+        </div>
+        <hr>
+        <div class="markdown-content" style="background: white; padding: 1.5rem; border-radius: 10px; margin-top: 1rem; line-height: 1.6;">
+            ${renderedContent}
+        </div>
+    `;
+}
+
 // Text Summarization
 async function summarizeText() {
     const text = document.getElementById('textInput').value.trim();
@@ -32,19 +115,7 @@ async function summarizeText() {
         const data = await response.json();
 
         if (response.ok) {
-            resultDiv.className = 'result-area success';
-            resultDiv.innerHTML = `
-                <h5><i class="fas fa-check-circle"></i> Summary Generated Successfully</h5>
-                <div style="margin-top: 1rem;">
-                    <strong>Original Length:</strong> ${data.original_length} characters<br>
-                    <strong>Summary Length:</strong> ${data.summary.length} characters<br>
-                    <strong>Compression Ratio:</strong> ${Math.round((1 - data.summary.length / data.original_length) * 100)}%
-                </div>
-                <hr>
-                <div style="background: white; padding: 1.5rem; border-radius: 10px; margin-top: 1rem; line-height: 1.6;">
-                    ${data.summary.replace(/\n/g, '<br>')}
-                </div>
-            `;
+            displayResult(resultDiv, data, 'text');
         } else {
             throw new Error(data.error || 'Unknown error');
         }
@@ -69,6 +140,7 @@ function handleFileSelect(event) {
         document.getElementById('fileName').textContent = file.name;
         document.getElementById('fileSize').textContent = formatFileSize(file.size);
         document.getElementById('selectedFile').style.display = 'block';
+        document.getElementById('fileSummarizeBtn').disabled = false;
     }
 }
 
@@ -76,6 +148,7 @@ function clearFile() {
     selectedFile = null;
     document.getElementById('fileInput').value = '';
     document.getElementById('selectedFile').style.display = 'none';
+    document.getElementById('fileSummarizeBtn').disabled = true;
     document.getElementById('fileResult').className = 'result-area';
     document.getElementById('fileResult').innerHTML = `
         <p style="text-align: center; color: var(--secondary-text-color); margin: 2rem 0;">
@@ -121,20 +194,7 @@ async function summarizeFile() {
         const data = await response.json();
 
         if (response.ok) {
-            resultDiv.className = 'result-area success';
-            resultDiv.innerHTML = `
-                <h5><i class="fas fa-check-circle"></i> File Summarized Successfully</h5>
-                <div style="margin-top: 1rem;">
-                    <strong>File:</strong> ${data.filename}<br>
-                    <strong>Extracted Length:</strong> ${data.extracted_length} characters<br>
-                    <strong>Summary Length:</strong> ${data.summary.length} characters<br>
-                    <strong>File Type:</strong> ${selectedFile.type || 'Unknown'}
-                </div>
-                <hr>
-                <div style="background: white; padding: 1.5rem; border-radius: 10px; margin-top: 1rem; line-height: 1.6;">
-                    ${data.summary.replace(/\n/g, '<br>')}
-                </div>
-            `;
+            displayResult(resultDiv, data, 'file');
         } else {
             throw new Error(data.error || 'Unknown error');
         }
@@ -181,20 +241,7 @@ async function enhanceNotes() {
         const data = await response.json();
 
         if (response.ok) {
-            resultDiv.className = 'result-area success';
-            resultDiv.innerHTML = `
-                <h5><i class="fas fa-check-circle"></i> Notes Enhanced Successfully</h5>
-                <div style="margin-top: 1rem;">
-                    <strong>Enhancement Type:</strong> ${data.type}<br>
-                    <strong>Original Length:</strong> ${data.original_length} characters<br>
-                    <strong>Enhanced Length:</strong> ${data.enhanced_notes.length} characters<br>
-                    <strong>Improvement:</strong> ${data.enhanced_notes.length > data.original_length ? 'Expanded' : 'Condensed'}
-                </div>
-                <hr>
-                <div style="background: white; padding: 1.5rem; border-radius: 10px; margin-top: 1rem; line-height: 1.6;">
-                    ${data.enhanced_notes.replace(/\n/g, '<br>')}
-                </div>
-            `;
+            displayResult(resultDiv, data, 'notes');
         } else {
             throw new Error(data.error || 'Unknown error');
         }
@@ -232,13 +279,14 @@ function initializeDragAndDrop() {
             const files = e.dataTransfer.files;
             if (files.length > 0) {
                 const file = files[0];
-                if (file.type === 'application/pdf' || file.type === 'text/plain' || file.name.endsWith('.md')) {
+                if (validateFile(file)) {
                     selectedFile = file;
                     document.getElementById('fileName').textContent = file.name;
                     document.getElementById('fileSize').textContent = formatFileSize(file.size);
                     document.getElementById('selectedFile').style.display = 'block';
+                    document.getElementById('fileSummarizeBtn').disabled = false;
                 } else {
-                    alert('Please select a PDF, TXT, or MD file');
+                    // validateFile function already shows the error message
                 }
             }
         });
