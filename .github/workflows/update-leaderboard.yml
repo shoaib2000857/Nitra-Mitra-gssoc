@@ -42,10 +42,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add LEADERBOARD.md
+          git add docs/LEADERBOARD.md
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Auto-update LEADERBOARD.md [skip ci]"
+            git commit -m "Auto-update docs/LEADERBOARD.md [skip ci]"
             git push
           fi

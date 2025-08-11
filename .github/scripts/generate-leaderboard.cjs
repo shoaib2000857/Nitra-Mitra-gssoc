@@ -200,9 +200,9 @@ Total Points = Sum of all level points earned.
 - **Email:** Public email from GitHub profile (if available)
 `;
 
-    fs.writeFileSync('LEADERBOARD.md', leaderboard);
+    fs.writeFileSync('docs/LEADERBOARD.md', leaderboard);
 
-    console.log('✅ LEADERBOARD.md generated successfully!');
+    console.log('✅ docs/LEADERBOARD.md generated successfully!');
     console.log(`📊 Total contributors: ${sortedContributors.length}`);
 
   } catch (error) {

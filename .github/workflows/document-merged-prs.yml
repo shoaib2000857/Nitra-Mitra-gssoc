@@ -7,8 +7,8 @@ on:
     types: [closed]
     branches: ["main"]
   schedule:
-    # Run every 12 hours
-    - cron: '0 */12 * * *'
+    # Run every 12 am 
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -42,10 +42,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add MERGED_PRS.md
+          git add docs/MERGED_PRS.md
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Auto-update MERGED_PRS.md [skip ci]"
+            git commit -m "Auto-update docs/MERGED_PRS.md [skip ci]"
             git push
           fi

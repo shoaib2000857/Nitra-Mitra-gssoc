@@ -78,8 +78,8 @@ async function closeIssue(issue) {
 async function main() {
   const issues = await getAllOpenIssues();
   for (const issue of issues) {
-    // If issue is open for more than 5 days and has no labels assigned
-    if (daysAgo(issue.created_at) >= 5 && (!issue.labels || issue.labels.length === 0)) {
+    // If issue is open for more than 5 days 
+    if (daysAgo(issue.created_at) >= 5 ) {
       await closeIssue(issue);
     }
   }

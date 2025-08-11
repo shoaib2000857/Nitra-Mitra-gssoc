@@ -1,0 +1,23 @@
+name: HTML Link & CSS Lint
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  html-link-css-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install cheerio glob
+
+      - name: Run custom HTML lint script
+        run: node .github/scripts/html-link-css-lint.js

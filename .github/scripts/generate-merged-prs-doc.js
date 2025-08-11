@@ -162,8 +162,8 @@ ${description}
 
     doc += detailsSection;
 
-    fs.writeFileSync('MERGED_PRS.md', doc);
-    console.log('✅ MERGED_PRS.md generated successfully!');
+    fs.writeFileSync('docs/MERGED_PRS.md', doc);
+    console.log('✅ docs/MERGED_PRS.md generated successfully!');
     console.log(`📊 Total merged PRs: ${mergedPRs.length}`);
   } catch (err) {
     console.error('❌ Error generating merged PRs documentation:', err);
