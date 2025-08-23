@@ -7,7 +7,7 @@ This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, o
 | Username | Email | Level 1 | Level 2 | Level 3 | PRs Merged | Total Points |
 |----------|-------|---------|---------|---------|------------|--------------|
 | [@shoaib2000857](https://github.com/shoaib2000857) | 24f2000857@ds.study.iitm.ac.in | 1 | 2 | 4 | 7 | 57 |
-| [@vaishaligoyal05](https://github.com/vaishaligoyal05) | vishug654@gmail.com | 0 | 1 | 3 | 4 | 37 |
+| [@vaishaligoyal05](https://github.com/vaishaligoyal05) | vishug654@gmail.com | 0 | 1 | 4 | 5 | 47 |
 | [@Nikita-Mishraa](https://github.com/Nikita-Mishraa) | nikita.mishra.pri@gmail.com | 3 | 3 | 0 | 6 | 30 |
 | [@thilak-r](https://github.com/thilak-r) | thilak22005@gmail.com | 0 | 0 | 3 | 3 | 30 |
 | [@Shailee6464](https://github.com/Shailee6464) | - | 0 | 4 | 0 | 4 | 28 |
@@ -25,6 +25,7 @@ This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, o
 | [@sabaaa01](https://github.com/sabaaa01) | xsabafatima01@gmail.com | 0 | 1 | 0 | 1 | 7 |
 | [@Tanvi0710](https://github.com/Tanvi0710) | - | 0 | 1 | 0 | 1 | 7 |
 | [@Triveni-Balekundri](https://github.com/Triveni-Balekundri) | balekundritriveni05@gmail.com | 0 | 1 | 0 | 1 | 7 |
+| [@himanshitwri08](https://github.com/himanshitwri08) | himanshitiwari098@gmail.com | 1 | 0 | 0 | 1 | 3 |
 | [@Anusha271815](https://github.com/Anusha271815) | - | 1 | 0 | 0 | 1 | 3 |
 | [@rashmibarodiya](https://github.com/rashmibarodiya) | - | 1 | 0 | 0 | 1 | 3 |
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | - | 1 | 0 | 0 | 1 | 3 |
