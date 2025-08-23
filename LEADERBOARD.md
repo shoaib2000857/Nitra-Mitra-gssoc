@@ -12,6 +12,7 @@ This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, o
 | [@thilak-r](https://github.com/thilak-r) | thilak22005@gmail.com | 0 | 0 | 3 | 3 | 30 |
 | [@Shailee6464](https://github.com/Shailee6464) | - | 0 | 4 | 0 | 4 | 28 |
 | [@Prabathvsv](https://github.com/Prabathvsv) | - | 0 | 2 | 0 | 2 | 14 |
+| [@Gupta-02](https://github.com/Gupta-02) | - | 0 | 0 | 1 | 1 | 10 |
 | [@mavishsethi](https://github.com/mavishsethi) | mavishsethi@gmail.com | 0 | 0 | 1 | 1 | 10 |
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | - | 1 | 1 | 0 | 2 | 10 |
 | [@kunnal-singhh](https://github.com/kunnal-singhh) | - | 1 | 1 | 0 | 2 | 10 |
