@@ -17,6 +17,7 @@ This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, o
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | - | 1 | 1 | 0 | 2 | 10 |
 | [@kunnal-singhh](https://github.com/kunnal-singhh) | - | 1 | 1 | 0 | 2 | 10 |
 | [@PrathmeshTatar](https://github.com/PrathmeshTatar) | prathmeshtatar05@gmail.com | 0 | 0 | 1 | 1 | 10 |
+| [@cin-sameer](https://github.com/cin-sameer) | s.rathorework@gmail.com | 0 | 1 | 0 | 1 | 7 |
 | [@RohitSalv](https://github.com/RohitSalv) | - | 0 | 1 | 0 | 1 | 7 |
 | [@Sushilnautiyal07](https://github.com/Sushilnautiyal07) | - | 0 | 1 | 0 | 1 | 7 |
 | [@divyaHAVES00256](https://github.com/divyaHAVES00256) | - | 0 | 1 | 0 | 1 | 7 |
