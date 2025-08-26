@@ -2,12 +2,15 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-08-25*
+*Last updated: 2025-08-26*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
 | [#301](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/301) | Fix: Responsiveness of website sections on smaller screens | [@roniitpodder](https://github.com/roniitpodder) | ## 🔖 PR Title: Fixed Responsiveness of website sections on ... | 3 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-24 | 8 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/301) |
-| [#294](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/294) | fix: improve dark mode accessibility for calculator tabs and results | [@kanishka1804](https://github.com/kanishka1804) | ## 🔖 PR Title: <!-- A clear and concise title ... | 1 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-24 | 58 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/294) |
+| [#308](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308) | Fix: Align 'Total Visitors' section and counter badge for visual consistency | [@ishanibasu](https://github.com/ishanibasu) | ## 🔖 PR Title: Fix: Aligned 'Total Visitors' section and ... | 60 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-25 | 458 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308) |
+| [#306](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/306) | Added 5 new interactive games and updated games page | [@cin-sameer](https://github.com/cin-sameer) | <h2>🎮 This PR <strong>added</strong> 5 new interactive and fun games ... | 13 | enhancement, gssoc25, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-25 | 739 | 13 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/306) |
+| [#294](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/294) | fix: improve dark mode accessibility for calculator tabs and results | [@kanishka1804](https://github.com/kanishka1804) | ## 🔖 PR Title: <!-- A clear and concise title ... | 1 | bug, level 1, OSCI25 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-24 | 58 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/294) |
+| [#315](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/315) | Added: Cgpa to percentage converter in cgpa calculator page | [@RohitSalv](https://github.com/RohitSalv) | ## Description Added a CGPA to Percentage converter feature in ... | 2 | enhancement, gssoc25, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-25 | 175 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/315) |
 | [#286](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/286) | fix: corrected card alignment and improved Dark Mode text visibility | [@himanshitwri08](https://github.com/himanshitwri08) |  **📄Description**: This PR improves the overall readability and alignment ... | 2 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-22 | 155 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/286) |
 | [#292](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/292) | changed ui of subject.html and add new features to it | [@vaishaligoyal05](https://github.com/vaishaligoyal05) | ## 🔖 PR Title: <!-- A clear and concise title ... | 3 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-23 | 3133 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/292) |
 | [#285](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/285) | Issue new | [@Gupta-02](https://github.com/Gupta-02) | ## 🔖 PR Title: <!-- A clear and concise title ... | 160 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-22 | 6206 | 328 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/285) |
@@ -117,6 +120,109 @@ This document lists all merged PRs with details: author, title, description (max
 
 ---
 
+### [#308 Fix: Align 'Total Visitors' section and counter badge for visual consistency](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308)
+
+- **Author:** [@ishanibasu](https://github.com/ishanibasu)
+- **Description:**  
+## 🔖 PR Title: Fix: Aligned 'Total Visitors' section and ...
+- **Files Changed (60):**
+    - `games/gamess.html`
+  - `games/hangman.html`
+  - `games/memory.html`
+  - `games/quiz.html`
+  - `games/typing.html`
+  - `index.css`
+  - `index.html`
+  - `pages/404.html`
+  - `pages/ai-assistant.html`
+  - `pages/ai-file-process.html`
+  - `pages/ai-question-gen.html`
+  - `pages/ai-summary.html`
+  - `pages/announcement-table.html`
+  - `pages/attendance.html`
+  - `pages/career-resource-library.html`
+  - `pages/cgpa-calculator.html`
+  - `pages/complaints.html`
+  - `pages/contact-queries.html`
+  - `pages/contact.css`
+  - `pages/contact.html`
+  - `pages/dark-mode.html`
+  - `pages/documentation-templates.html`
+  - `pages/feedback.html`
+  - `pages/gallery.html`
+  - `pages/gateway.html`
+  - `pages/ide-recommendation.html`
+  - `pages/infrastructure.html`
+  - `pages/issue-tracker.html`
+  - `pages/job-board.html`
+  - `pages/lab-reports.html`
+  - `pages/lectures.html`
+  - `pages/live-sessions.html`
+  - `pages/lost-found.html`
+  - `pages/marketplace.html`
+  - `pages/mock-test.html`
+  - `pages/multi-language.html`
+  - `pages/notes.html`
+  - `pages/notifications.html`
+  - `pages/open-source-opportunities.html`
+  - `pages/paper.html`
+  - `pages/pg-reviews.html`
+  - `pages/placement-updates.html`
+  - `pages/privacy.html`
+  - `pages/pyqs.html`
+  - `pages/quantum.html`
+  - `pages/resorces.html`
+  - `pages/roommate-finder.html`
+  - `pages/service-ratings.html`
+  - `pages/skill-tracker.html`
+  - `pages/student-dashboard.html`
+  - `pages/study-groups.html`
+  - `pages/subject-wiki.html`
+  - `pages/subject.html`
+  - `pages/suggestions.html`
+  - `pages/syllabus.html`
+  - `pages/tech.html`
+  - `pages/terms.html`
+  - `pages/test.html`
+  - `pages/user-experience-table.html`
+  - `pages/version-control-tips.html`
+- **Labels:** None
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-25 17:20:36
+- **Lines Updated:** 458
+- **Commits:** 3
+- **PR Link:** [PR #308](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308)
+
+---
+
+### [#306 Added 5 new interactive games and updated games page](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/306)
+
+- **Author:** [@cin-sameer](https://github.com/cin-sameer)
+- **Description:**  
+<h2>🎮 This PR <strong>added</strong> 5 new interactive and fun games ...
+- **Files Changed (13):**
+    - `games/Sliding-Tile.html`
+  - `games/color-recall.html`
+  - `games/games.css`
+  - `games/gamess.html`
+  - `games/gamess.js`
+  - `games/guessTheoutput.html`
+  - `games/lock-logic.html`
+  - `games/sudoku.html`
+  - `images/8-tiles.jpeg`
+  - `images/Color-Recall.png`
+  - `images/guessTheoutput.png`
+  - `images/logic-lock.webp`
+  - `images/sudoku.png`
+- **Labels:** `enhancement`, `gssoc25`, `LEVEL 2`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-25 17:06:14
+- **Lines Updated:** 739
+- **Commits:** 13
+- **PR Link:** [PR #306](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/306)
+
+---
+
 ### [#294 fix: improve dark mode accessibility for calculator tabs and results](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/294)
 
 - **Author:** [@kanishka1804](https://github.com/kanishka1804)
@@ -124,12 +230,29 @@ This document lists all merged PRs with details: author, title, description (max
 ## 🔖 PR Title: <!-- A clear and concise title ...
 - **Files Changed (1):**
     - `index.css`
-- **Labels:** `bug`, `gssoc25`, `level 1`
+- **Labels:** `bug`, `level 1`, `OSCI25`
 - **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
 - **Merged At:** 2025-08-24 02:16:32
 - **Lines Updated:** 58
 - **Commits:** 1
 - **PR Link:** [PR #294](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/294)
+
+---
+
+### [#315 Added: Cgpa to percentage converter in cgpa calculator page](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/315)
+
+- **Author:** [@RohitSalv](https://github.com/RohitSalv)
+- **Description:**  
+## Description Added a CGPA to Percentage converter feature in ...
+- **Files Changed (2):**
+    - `index.css`
+  - `pages/cgpa-calculator.html`
+- **Labels:** `enhancement`, `gssoc25`, `LEVEL 2`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-25 14:44:36
+- **Lines Updated:** 175
+- **Commits:** 1
+- **PR Link:** [PR #315](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/315)
 
 ---
 
