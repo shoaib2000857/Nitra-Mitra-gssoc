@@ -29,15 +29,11 @@ function apiRequest(path, page = 1) {
       let data = '';
       res.on('data', (chunk) => data += chunk);
       res.on('end', () => {
-        if (res.statusCode === 403) {
-          resolve({ data: [], hasNextPage: false });
-          return;
-        }
-        if (res.statusCode >= 400) {
-          resolve({ data: [], hasNextPage: false });
-          return;
-        }
         try {
+          if (res.statusCode >= 400) {
+            resolve({ data: [], hasNextPage: false });
+            return;
+          }
           const jsonData = JSON.parse(data);
           resolve({
             data: jsonData,
@@ -75,6 +71,11 @@ async function fetchUserProfile(username) {
   return response.data || {};
 }
 
+// Normalizer: remove spaces, colons, dashes
+function normalizeLabel(label) {
+  return label.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
 async function generateLeaderboard() {
   try {
     console.log('Fetching closed PRs...');
@@ -85,12 +86,12 @@ async function generateLeaderboard() {
     const osciStats = {};
 
     // Point systems
-    const GSSOC_POINTS = { 'level1': 3, 'level 1': 3, 'level2': 7, 'level 2': 7, 'level3': 10, 'level 3': 10 };
-    const OSCI_POINTS = { 'easy': 10, 'intermediate': 20, 'hard': 30 };
+    const GSSOC_POINTS = { level1: 3, level2: 7, level3: 10 };
+    const OSCI_POINTS = { easy: 10, intermediate: 20, hard: 30 };
 
     for (const pr of prs) {
       if (!pr.merged_at) continue;
-      const labels = (pr.labels || []).map(label => label.name.toLowerCase());
+      const labels = (pr.labels || []).map(label => normalizeLabel(label.name));
       const username = pr.user.login;
 
       // GSSoC’25
@@ -101,9 +102,7 @@ async function generateLeaderboard() {
         gssocStats[username].mergedPRs++;
         for (const label of labels) {
           if (GSSOC_POINTS[label]) {
-            if (label.includes('level1')) gssocStats[username].level1++;
-            if (label.includes('level2')) gssocStats[username].level2++;
-            if (label.includes('level3')) gssocStats[username].level3++;
+            gssocStats[username][label]++;
             gssocStats[username].points += GSSOC_POINTS[label];
           }
         }
@@ -117,9 +116,7 @@ async function generateLeaderboard() {
         osciStats[username].mergedPRs++;
         for (const label of labels) {
           if (OSCI_POINTS[label]) {
-            if (label === 'easy') osciStats[username].easy++;
-            if (label === 'intermediate') osciStats[username].intermediate++;
-            if (label === 'hard') osciStats[username].hard++;
+            osciStats[username][label]++;
             osciStats[username].points += OSCI_POINTS[label];
           }
         }
